@@ -100,4 +100,30 @@ let grid = [[1, 1 ,0 ,0,0],
 //print(findIsland(grid: grid))
 
 
-Given a 2D grid representing a grid of rooms, each room can either be empty '0', a wall '1', or a gate '2'. Determine if there is a cycle containing a gate. A cycle is a path of connected rooms, where two rooms are connected if they are adjacent vertically or horizontally.
+
+
+
+
+
+//Two Pointers
+
+//Given a sorted array of integers and a target value, find two numbers in the array such that their sum is equal to the target. Return the indices of these two numbers.
+
+func twoPointer(arr:[Int] , target:Int)->[Int]{
+    var left = 0
+    var right = arr.count - 1
+    while left < right{
+//        print([left,right])
+        if arr[left] + arr[right] == target {
+            return [left + 1 , right + 1]
+        }else if arr[left] + arr[right] < target {
+            left+=1
+        }else{
+            right-=1
+            
+        }
+    }
+        return[]
+    
+}
+print(twoPointer(arr: [2, 7, 11, 15], target: 9))
