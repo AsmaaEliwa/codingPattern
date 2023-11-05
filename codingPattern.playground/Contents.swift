@@ -126,4 +126,32 @@ func twoPointer(arr:[Int] , target:Int)->[Int]{
         return[]
     
 }
-print(twoPointer(arr: [2, 7, 11, 15], target: 9))
+//print(twoPointer(arr: [2, 7, 11, 15], target: 9))
+
+
+
+//Fast & Slow Pointers
+
+class node{
+    var value:Int
+    var next: node?
+    init(_ val:Int){
+        self.value = val
+        self.next = nil
+    }
+    
+}
+
+
+func hasCycle(head:node?)->Bool{
+    var slow = head
+    var fast = head
+    while fast != nil && fast?.next != nil{
+        slow = slow?.next
+        fast = fast?.next?.next
+        if fast === slow {
+            return true
+        }
+    }
+    return false
+}
